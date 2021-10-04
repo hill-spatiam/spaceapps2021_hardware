@@ -1,4 +1,6 @@
 This hardware setup is used to simulate an eva suit with built-in microphone that will be used to automatically log to our system whenever speech is detected
+
+
 *Hardware*
 
 - [ ] Raspberry Pi 4
