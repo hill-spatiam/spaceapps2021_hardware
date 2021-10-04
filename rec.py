@@ -9,6 +9,11 @@ import json
 import threading
 import random
 
+#Change these for your mission
+user = "<your_username>"
+Authorization = "Token <your token>"
+log = "<your log id>"
+
 class style():
     BLACK = '\033[30m'
     RED = '\033[31m'
@@ -55,10 +60,10 @@ def pretty_print_POST(req):
 
 def sendreq(text,timestamp):
   url = "http://44.193.83.129:8000/api/entries/"
-  hdrs = {"Authorization": "Token 157547ed60bb7259ee77f0c10e445351f82d5c88","Content-Type":"application/json"}
+  hdrs = {"Authorization": Authorization,"Content-Type":"application/json"}
   text="STT:"+text
   raw_data = "{\"external_temperature\":\""+str(getExternalTemperature())+DEGREE+"C"+"\",\"suit_pressure\":\""+str(getSuitPressure())+" kPa"+"\",\"selenographic_coordinates\":\""+getSelenographicCoordinates()+"\",\"heart_rate\":\""+str(getHeartRate())+" bpm"+"\"}"
-  body_with_data = {"user":"eric","message":text,"tags":"test,eva,rpi","log":"da925b33-2e8a-4adf-8d2d-2903f2111a17","date_published":timestamp,"raw_data":raw_data}
+  body_with_data = {"user":user,"message":text,"tags":"test,eva,rpi","log":log,"date_published":timestamp,"raw_data":raw_data}
   print(style.WHITE+"*"*(len(text)+2))
   print("*"+style.CYAN+text+style.WHITE+"*")
   print(style.WHITE+"*"*(len(text)+2)+style.RESET)
